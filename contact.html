@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- style links -->
+    <link rel="stylesheet" href="style/style.css">
+      <!-- font awesome file -->
+    <link rel="stylesheet" href="style/all.min.css"> 
+    <!-- style links -->
+    <title>Haidar Porfolio</title>
+</head>
+<body class="main-content">
+
+  <div class="container">
+    <ul class="nav-items-mobo">
+      <li ><a href="Haidar.html" class="a active-btn">Home</a></li>
+      <li ><a href="services.html" class="a ">Services</a></li>
+      <li ><a href="project.html" class="a ">Projects</a></li>
+      <li ><a href="skills.html" class="a ">Skills</a></li>
+      <li><a href="contact.html" class="a ">Contact</a></li>
+    </ul>
+    <!-- top bar -->
+  <top-bar>
+    <div class="logo"><img src="pic/HiCode logo 2 (2) copy.png" alt=""></div>
+    <navegation-bar>
+      <div class="nav-items-mobile" onclick="enable()">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </div>
+      <ul class="nav-items">
+        <li ><a href="Haidar.html" class="a active-btn">Home</a></li>
+        <li ><a href="services.html" class="a ">Services</a></li>
+        <li ><a href="project.html" class="a ">Projects</a></li>
+        <li ><a href="skills.html" class="a ">Skills</a></li>
+        <li><a href="contact.html" class="a ">Contact</a></li>
+      </ul>
+    </navegation-bar>
+  </top-bar>
+  <!-- top bar -->
+  <!-- contact -->
+  <contact>
+    
+      <!-- ////////////////////////////////////////////////////////////////-->
+         <div class="contact-container">
+      <div class="form">
+        <div class="contact-info">
+          <h3 class="title">Let's get in touch</h3>
+          <p class="text">
+            If you need any assistance in the field of graphic design, 
+            website front-ends, or even logo design, do not hesitate to contact me.
+          </p>
+
+          <div class="info">
+            <div class="information">
+              <img src="pic/location.png" class="icon" alt="" />
+              <p>Syria / Damascus / Mazzah</p>
+            </div>
+            <div class="information">
+              <img src="pic/email.png" class="icon" alt="" />
+              <p>haidarahmad1213@gmail.com</p>
+            </div>
+            <div class="information">
+              <img src="pic/phone.png" class="icon" alt="" />
+              <p>+963 982 593 034</p>
+            </div>
+          </div>
+
+          <div class="social-media">
+            <p>Connect with me :</p>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/profile.php?id=61552543141467&mibextid=ZbWKwL">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://t.me/haidar_ahmad123">
+                <i class="fab fa-telegram"></i>
+              </a>
+              <a href="https://www.instagram.com/haidarahmad411?igsh=MTNoMTNuMWI5ank2cQ==">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="www.linkedin.com/in/haidar-ahmad-8bb40329a">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+
+          <form autocomplete="off" onsubmit="sendEmail();reset();return false">
+            <h3 class="title">Contact us</h3>
+            <div class="input-container">
+              <input type="text" name="name" class="input" id="name" />
+              <label for="">Username</label>
+              <span>Username</span>
+            </div>
+            <div class="input-container">
+              <input type="email" name="email" class="input" autocomplete="off" id="email"/>
+              <label for="">Email</label>
+              <span>Email</span>
+            </div>
+            <div class="input-container">
+              <input type="tel" name="phone" class="input" id="phone-number" />
+              <label for="">Phone</label>
+              <span>Phone</span>
+            </div>
+            <div class="input-container textarea">
+              <textarea name="message" class="input" id="message"></textarea>
+              <label for="">Message</label>
+              <span>Message</span>
+            </div>
+            <input type="submit" value="Send" class="btn" href="#"/>
+          </form>
+        </div>
+      </div>
+    </div>
+     <!--///////////////////////////////////////////////////////////////// --> 
+    
+  </contact>
+  <!-- contact -->
+</div>
+
+<script>
+    const inputs = document.querySelectorAll(".input");
+
+function focusFunc() {
+  let parent = this.parentNode;
+  parent.classList.add("focus");
+}
+
+function blurFunc() {
+  let parent = this.parentNode;
+  if (this.value == "") {
+    parent.classList.remove("focus");
+  }
+}
+
+inputs.forEach((input) => {
+  input.addEventListener("focus", focusFunc);
+  input.addEventListener("blur", blurFunc);
+});
+var myBtn = document.getElementsByClassName('nav-items-mobile')
+ var myNavBar = document.querySelector('.nav-items-mobo')
+function enable(){
+  console.log('ha')
+  
+  myNavBar.style.height = '100%'
+  myNavBar.style.border = '1px solid rgba(255, 255, 255, 0.18)'
+}
+// ////////////////////////////////////////////////////////////
+function sendEmail(){
+  Email.send({
+    SecureToken : "3f9a48f9-5da3-4867-b26e-f75b5cbe1064",
+    To : 'haidarahmad1213@gmail.com',
+    From : "haidarahmad1213@gmail.com",
+    Subject : "you reseived a message",
+    Body : "name: " + document.getElementById('name').value
+    + "<br>Email: " + document.getElementById('email').value
+    +"<br>Phone number: " + document.getElementById('phone-number').value
+    +"<br>message: " + document.getElementById('message').value
+}).then(
+  message => alert(' message sent succesfully')
+);
+}
+</script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+    </body>
+</html>
